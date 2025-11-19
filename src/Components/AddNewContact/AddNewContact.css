@@ -1,0 +1,20 @@
+.form-group {
+    margin-bottom: 15px;
+}
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.sumbit-button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
