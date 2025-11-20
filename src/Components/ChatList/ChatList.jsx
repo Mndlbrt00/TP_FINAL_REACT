@@ -9,7 +9,9 @@ const ChatList = ({contacts, addNewContact}) => {
     
   return (
     <div className="chat-list-container">
-      <h2>Lista de Chats</h2>
+      <Link to="/chat" className="chat-link">
+        <h2 className="all-chats-link">INICIO</h2>
+      </Link>
       {contacts.map(
         (contact) => {
           return (

@@ -35,6 +35,7 @@ const contacts = [
           id: 1,
           content: 'Hola, ¿cómo estás?',
           author_id: 1,
+          author_name: 'Juan Perez',
           created_at: 'hoy, 10:30 AM',
           status: 'VIEWED'
         }
@@ -53,6 +54,7 @@ const contacts = [
           id: 2,
           content: 'nos vemos!',
           author_id: 2,
+          author_name: 'Hector Gomez',
           created_at: 'ayer, 06:15 PM',
           status: 'VIEWED'
         }

@@ -9,6 +9,7 @@ const AddNewContact = ({addNewContact}) => {
         console.log('Nuevo contacto:', name_value);
 
         addNewContact(name_value);
+        formulario.reset();
     }
   return (
     <form onSubmit={handleSubmitNewContact}>
@@ -16,7 +17,7 @@ const AddNewContact = ({addNewContact}) => {
             <label htmlFor="name">Nombre:</label>
             <input name='name' id='name' placeholder='Ingrese el nombre de su nuevo contacto' />
         </div>
-        <button className='submit-button' type='submit'>Agregar Contacto</button>
+        <button className='submit-button' type='submit'>Agreg ar Contacto</button>
     </form>
   )
 }
