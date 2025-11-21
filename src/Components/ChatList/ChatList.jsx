@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
-import { getContacts } from "../../services/contactService";
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import './ChatList.css'
 import { useContext } from "react";
 import { ContactContext } from "../../contexts/ContactContext.jsx";
 import AddNewContact from "../AddNewContact/AddNewContact";
+
+
 const ChatList = () => {
   const { contacts,  } = useContext(ContactContext);
+  
   return (
-    <div className="chat-list-container">
-      <Link to="/chat" className="chat-link">
-        <h2 className="all-chats-link">INICIO</h2>
+    <div className="chat-list-full-side">
+      <div className="chat-list-container">
+      <Link to="/chat" className="contactos-link">
+        <h2 className="titulo-contactos">Contactos</h2>
       </Link>
       {contacts.map(
         (contact) => {
@@ -25,7 +27,8 @@ const ChatList = () => {
           }
         )
       }
-    <AddNewContact />
+      </div>
+      <AddNewContact />
     </div>  
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './CreateNewMessage.css'
 
 const CreateNewMessage = ({createNewMessage}) => {

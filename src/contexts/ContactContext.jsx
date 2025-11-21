@@ -117,7 +117,6 @@ function ContactContextProvider ({ children }) {
                 error,
                 chatDetail,
                 setChatId,
-                // provide both names to avoid shadowing between imported component and context function
                 AddNewContact,
                 addNewContact: AddNewContact,
                 createNewMessage

@@ -1,0 +1,72 @@
+:root {
+    --site-max: 1200px; 
+    --gutter: 1rem; 
+}
+
+* {
+    box-sizing: border-box;
+ }
+
+html, body, #root {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     overflow-x: hidden;
+}
+
+body.no-body-scroll { overflow: hidden; }
+
+body, #root {
+    min-height: 100%;
+}
+
+.container {
+    max-width: var(--site-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+html {
+    font-size: 16px;
+}
+
+body { 
+    font-family: "Montserrat", sans-serif;
+    color: #111;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+h2 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+p, button, input, label {
+    font-size: clamp(0.9rem, 1.6vw, 1rem);}
+
+
+img, .avatar, .profile-picture {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container-inline {
+    padding: 0 var(--gutter); 
+}
+
+@media (max-width: 768px) {
+    :root {
+        --gutter: 0.75rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --gutter: 0.5rem; 
+    }
+}

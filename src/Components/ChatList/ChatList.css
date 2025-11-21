@@ -6,9 +6,22 @@
     padding: 10px;
 }
 
+.contactos-link{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+
+}
 .chat-link {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     display: flex;
-    align-items: center;
+    align-items: left;
     gap: 10px;
     text-decoration: none;
     color: inherit;
@@ -30,4 +43,18 @@
 .last-connection {
     font-size: 14px;
     color: gray;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .profile-picture { width: 40px; height: 40px; }
+    .profile-name { font-size: 1rem; }
+    .last-connection { font-size: 0.85rem; }
+    .chat-list-container { gap: 10px; padding: 8px; }
+}
+
+@media (max-width: 480px) {
+    .profile-picture { width: 36px; height: 36px; }
+    .profile-name { font-size: 0.95rem; }
+    .last-connection { font-size: 0.8rem; }
 }

@@ -8,7 +8,7 @@ import ChatScreen from './screens/ChatScreen'
 const App = () =>{
 
   return (
-    <div>
+    <div className='app-div'>
       <Routes>
         <Route path='/' element={<ChatScreen/>}/>
         <Route path='/chat' element={<ChatScreen/>}/>

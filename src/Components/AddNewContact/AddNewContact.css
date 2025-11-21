@@ -1,5 +1,8 @@
 .form-group {
     margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
 }
 .form-label {
     display: block;
