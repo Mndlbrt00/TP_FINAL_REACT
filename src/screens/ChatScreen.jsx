@@ -1,126 +1,34 @@
-import React, { use } from 'react'
-import { useEffect, useState } from 'react';
+import React, { use, useContext, useEffect } from 'react'
 import { getContacts } from '../services/contactService.js';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import ChatList from '../Components/ChatList/ChatList.jsx';
 import ChatDetail from '../Components/ChatDetail/ChatDetail.jsx';
 import './ChatScreen.css'
+import  { ContactContext } from '../contexts/ContactContext.jsx';
 
 const ChatScreen = () => {
   
-  const [contacts, setContacts] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const {chat_id} = useParams();
-  const [chatDetail, setChatDetail] = useState(null);
-
-  function loadContacts() {
-    setLoading(true); 
-    setTimeout(
-      () => {
-    const contacts = getContacts();
-    setContacts(contacts);
-    setLoading(false);
-      },
-      500
-    )
-  }
-  function AddNewContact(name) {
-    const new_contact = {
-      id: contacts.length + 1,
-      user_id: contacts.length + 1, 
-      name: name,
-      profile_picture: 'https://hips.hearstapps.com/hmg-prod/images/iw356201-7-67b4783b4a57e.png?crop=1.00xw:1.00xh;0,0&resize=640:*',
-      last_connection: 'Ahora mismo',
-      is_connected: true,
-      messages: []
-      }
-    setContacts(
-      (prev_state) =>
-        {
-        return[...prev_state, new_contact]
-        }
-      )
-    }
-
-  function createNewMessage(messageText) {
-  const new_message = {
-    id: Date.now().toString(),
-    content: messageText,
-    author_id: 0,
-    author_name: 'Tu',
-    created_at: 'ahora mismo',
-    status: 'SENT'
-  };
-
-  setContacts((prev) =>
-    prev.map((chat) =>
-      Number(chat.id) === Number(chat_id)
-        ? { ...chat, messages: [...(chat.messages || []), new_message] }
-        : chat
-    )
-  )
-  setTimeout(
-    automaticReply,
-    2000
-  )
-}
-
-  function automaticReply() {
-    const new_message = {
-        id: Date.now().toString() ,
-        content: 'Recibido, gracias!',
-        author_id: chatDetail.user_id,
-        author_name: chatDetail.name,
-        created_at: 'ahora mismo',
-        status: 'VIEWED'
-      };
-
-    setContacts((prev) =>
-      prev.map((chat) =>
-        Number(chat.id) === Number(chat_id)
-          ? { ...chat, messages: [...(chat.messages || []), new_message] }
-          : chat
-      )
-    )
-  }
-
+ //aca estaban todos los useState y useEffect relacionados a contacts
+ //ahora van al ContactContext
+  const {chat_id} = useParams()
+  const {loading, contacts, chatDetail, setChatId, createNewMessage, AddNewContact} = useContext(ContactContext);
   
-  function loadChatDetail() {
-    console.log( loading, contacts)
-    if (contacts && !loading && chat_id){
-      const chat_selected = contacts.find(contact => Number(contact.id) === Number(chat_id) )
-      setChatDetail(chat_selected);
-    }
-  }
-
-
   useEffect(
-    loadContacts,
-    []
+    () => {
+      setChatId(chat_id)
+    },
+    [chat_id]
   )
-
-  useEffect(() => {
-    if (contacts && !loading && chat_id) {
-      loadChatDetail();
-    } 
-    else {
-      setChatDetail(null);
-    }
-  }, [chat_id, contacts, loading]);
-
-
   
-  console.log('chatDetail:', chatDetail)
+  
   return (
-    
     <div className='chat-screen'>
       <div className='contact-list'>
         {/* panel izquierdo: lista de chats */}
         {
           loading 
           ? <span>Cargando...</span>
-          : contacts && <ChatList contacts={contacts} addNewContact={AddNewContact}/>
+          : contacts && <ChatList/>
         }
       </div>
 
