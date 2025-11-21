@@ -1,0 +1,16 @@
+.chat-screen {
+  display: flex;
+  height: 100vh;
+}
+
+.contact-list {
+  width: 30%;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+.chat-detail {
+  width: 70%;
+  padding: 20px;
+  overflow-y: auto;
+}

@@ -59,8 +59,32 @@ const ChatScreen = () => {
         ? { ...chat, messages: [...(chat.messages || []), new_message] }
         : chat
     )
-  );
+  )
+  setTimeout(
+    automaticReply,
+    2000
+  )
 }
+
+  function automaticReply() {
+    const new_message = {
+        id: Date.now().toString() ,
+        content: 'Recibido, gracias!',
+        author_id: chatDetail.user_id,
+        author_name: chatDetail.name,
+        created_at: 'ahora mismo',
+        status: 'VIEWED'
+      };
+
+    setContacts((prev) =>
+      prev.map((chat) =>
+        Number(chat.id) === Number(chat_id)
+          ? { ...chat, messages: [...(chat.messages || []), new_message] }
+          : chat
+      )
+    )
+  }
+
   
   function loadChatDetail() {
     console.log( loading, contacts)

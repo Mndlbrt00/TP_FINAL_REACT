@@ -1,0 +1,8 @@
+.message-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  max-width: 70%;
+}
