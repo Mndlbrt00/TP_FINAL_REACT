@@ -14,10 +14,10 @@ const CreateNewMessage = ({createNewMessage}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='form-group' onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="message">Nuevo Mensaje:</label>
-                <textarea name="message" id="message" placeholder='Ingrese su mensaje'/>
+                <textarea className='message-input' name="message" id="message" placeholder='Ingrese su mensaje'/>
             </div>
             <button className='submit-button' type='submit'>Enviar</button>
         </form>

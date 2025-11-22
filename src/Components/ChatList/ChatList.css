@@ -12,7 +12,12 @@
     font-weight: 600;
     font-style: normal;
     text-decoration: none;
-    color: black;
+    align-items: center;
+    color: #fffef8;
+    padding: 0px 10px;
+    border: 2px solid #E83151;
+    border-radius: 7px;
+    background-color: #df405a;
 
 }
 .chat-link {
@@ -22,9 +27,11 @@
     font-style: normal;
     display: flex;
     align-items: left;
+    border-radius: 15px;
     gap: 10px;
     text-decoration: none;
-    color: inherit;
+    color: black;
+    background-color: #d2cca1;
 }
 
 .profile-picture {

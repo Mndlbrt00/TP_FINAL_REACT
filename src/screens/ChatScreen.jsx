@@ -59,7 +59,7 @@ const ChatScreen = () => {
   
   return (
     <div>
-      <Link to="/chat" className="chat-link">
+      <Link to="/chat" className="main-link">
         <h1 className='Titulo'>Mensajeria en REACT</h1>
       </Link>
       

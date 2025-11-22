@@ -12,7 +12,6 @@ const AddNewContact = () => {
 
     const name_value = formulario.name.value;
    
-
     if (name_value !== '') {
       addNewContact(name_value);
        console.log('Nuevo contacto:', name_value);
@@ -23,10 +22,10 @@ const AddNewContact = () => {
   }
 
   return (
-    <form onSubmit={handleSubmitNewContact}>
-      <div className='form-group'>
+    <form className='form-group' onSubmit={handleSubmitNewContact}>
+      <div >
         <label htmlFor="name">Nuevo contacto:</label>
-        <input name='name' id='name' placeholder='Ingrese el nombre' />
+        <input className='contact-input' name='name' id='name' placeholder='Ingrese el nombre' />
       </div>
       <button className='submit-button' type='submit'>Agregar Contacto</button>
     </form>
