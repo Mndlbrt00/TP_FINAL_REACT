@@ -12,6 +12,8 @@ function ContactContextProvider ({ children }) {
     const [error, setError] = useState(null)
     const [chat_id, setChatId] = useState(null);
     const [chatDetail, setChatDetail] = useState(null);
+    const [search, setSearch] = useState("");
+
 
     function loadContacts() {
         setLoading(true); 
@@ -24,6 +26,13 @@ function ContactContextProvider ({ children }) {
             500
         )
     }
+  
+    const contactosFiltrados = contacts
+    ? contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(search.toLowerCase())
+        )
+    : null;
+
     function AddNewContact(name) {
         const new_contact = {
             id: contacts.length + 1,
@@ -116,6 +125,9 @@ function ContactContextProvider ({ children }) {
                 loading,
                 error,
                 chatDetail,
+                search,
+                contactosFiltrados,
+                setSearch,
                 setChatId,
                 AddNewContact,
                 addNewContact: AddNewContact,

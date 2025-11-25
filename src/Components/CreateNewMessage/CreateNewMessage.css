@@ -42,3 +42,27 @@
   font-weight: 600;
   align-self: flex-end;
 }
+
+/* fixed container at the bottom */
+.create-message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
+  z-index: 1000;
+}
+
+/* make sure form children layout nicely when fixed */
+.create-message > div {
+  margin-bottom: 8px;
+}
+
+@media (min-width: 600px) {
+  .create-message {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

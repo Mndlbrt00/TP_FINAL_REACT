@@ -1,0 +1,26 @@
+
+
+.chatlist-top{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    align-items: center;
+    color: #fffef8;
+    padding: 0px 10px;
+    border: 2px solid #E83151;
+    border-radius: 7px;
+    background-color: #df405a;
+}
+
+.contact-link{
+     font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    align-items: center;
+    color: #fffef8;
+    text-decoration: none;
+}
