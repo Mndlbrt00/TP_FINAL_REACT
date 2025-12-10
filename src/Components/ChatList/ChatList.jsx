@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { ContactContext } from "../../contexts/ContactContext.jsx";
 import AddNewContact from "../AddNewContact/AddNewContact";
 import SearchContact from "../SearchContact/SearchContact.jsx";
-
+import AnimatedList from "../AnimatedList/AnimatedList.jsx";
 
 const ChatList = () => {
   const { contacts, contactosFiltrados } = useContext(ContactContext);
@@ -23,16 +23,35 @@ const ChatList = () => {
         {listToRender.length === 0 ? (
           <div className="no-results">No hay contactos con ese nombre</div>
         ) : (
-          listToRender.map((contact) => (
-            <Link to={'/chat/' + contact.id} key={contact.id} className="chat-link">
-              <img className="profile-picture" src={contact.profile_picture} alt={'Foto de ' + contact.name} />
-              <h2 className="profile-name">{contact.name}</h2>
-              <span className="last-connection">{contact.last_connection}</span>
-            </Link>
-          ))
+
+          <AnimatedList
+            items={listToRender.map(
+            (contact) => (
+              <Link to={'/chat/' + contact.id} key={contact.id} className="chat-link">
+                <img className="profile-picture" src={contact.profile_picture} alt={'Foto de ' + contact.name} />
+                <h2 className="profile-name">{contact.name}</h2>
+                <span className="last-connection">{contact.last_connection}</span>
+              </Link>
+            )
+          )}
+            onItemSelect={(item, index) => console.log(item, index)}
+            showGradients={true}
+            enableArrowNavigation={true}
+            displayScrollbar={true}
+          />
+         /*  listToRender.map(
+            (contact) => (
+              <Link to={'/chat/' + contact.id} key={contact.id} className="chat-link">
+                <img className="profile-picture" src={contact.profile_picture} alt={'Foto de ' + contact.name} />
+                <h2 className="profile-name">{contact.name}</h2>
+                <span className="last-connection">{contact.last_connection}</span>
+              </Link>
+            )
+          ) */
         )}
       </div>
       <AddNewContact />
+      
     </div>
   );
 };

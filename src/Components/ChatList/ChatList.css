@@ -21,7 +21,7 @@
     background-color: var(--accent-contrast);
 }
 
-.chat-link {
+/* .chat-link {
     font-family: var(--font-family);
     font-optical-sizing: auto;
     font-weight: var(--fw-regular);
@@ -33,7 +33,7 @@
     text-decoration: none;
     color: var(--card-text);
     background-color: var(--card-bg);
-}
+} */
 
 .profile-picture {
     width: var(--profile-pic-size);
