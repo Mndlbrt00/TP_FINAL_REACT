@@ -55,3 +55,8 @@
   text-align: center;
   align-self: flex-end; 
 }
+
+/* When the form is inside the chat list and sticky to bottom, ensure visual separation */
+.form-group {
+  background-clip: padding-box;
+}

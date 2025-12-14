@@ -5,11 +5,7 @@ import { ContactContext } from '../../contexts/ContactContext.jsx'
 const AddNewContact = () => {
   const { addNewContact } = useContext(ContactContext);
 
-  const handleSubmitNewContact = (event) => {
-    event.preventDefault();
-    
-    const formulario = event.target;
-
+  const enviarContacto = (formulario) => {
     const name_value = formulario.name.value;
    
     if (name_value !== '') {
@@ -21,11 +17,24 @@ const AddNewContact = () => {
     formulario.reset();
   }
 
+  const handleSubmitNewContact = (event) => {
+    event.preventDefault();
+    enviarContacto(event.target);
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      const form = event.target.closest('form');
+      enviarContacto(form);
+    }
+  }
+
   return (
     <form className='form-group' onSubmit={handleSubmitNewContact}>
       <div >
         <label htmlFor="name">Nuevo contacto:</label>
-        <input className='contact-input' name='name' id='name' placeholder='Ingrese el nombre' />
+        <input className='contact-input' name='name' id='name' placeholder='Ingrese el nombre' onKeyDown={handleKeyDown} />
       </div>
       <button className='submit-button' type='submit'>Agregar Contacto</button>
     </form>

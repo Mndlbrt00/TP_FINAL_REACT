@@ -1,9 +1,26 @@
 
-.chat-list-container {
+.chat-list-full-side {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 10px;
+}
+
+.chat-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden; /* remove outer scrollbar */
+}
+
+/* Make the search header stick to the top of the container/viewport */
+.chatlist-top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: inherit;
 }
 
 
@@ -66,3 +83,24 @@
     .profile-name { font-size: 0.95rem; }
     .last-connection { font-size: 0.8rem; }
 }
+
+/* Animated list container should take remaining space and scroll internally */
+.scroll-list-container {
+    flex: 1 1 auto;
+    min-height: 0; /* allow flex child to shrink for scrolling */
+    overflow: auto;
+}
+
+/* hide outer container scrollbar on WebKit (if any) */
+.chat-list-container::-webkit-scrollbar { display: none; }
+
+/* Wrapper for the AddNewContact form: stick to bottom when scrolling */
+.add-new-wrapper {
+    position: sticky;
+    bottom: 0;
+    z-index: 15;
+    align-self: stretch;
+}
+
+/* reduce default margins so the sticky form hugs the bottom */
+.add-new-wrapper .form-group { margin: 0; }

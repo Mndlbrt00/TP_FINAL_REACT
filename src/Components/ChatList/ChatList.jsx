@@ -35,9 +35,9 @@ const ChatList = () => {
             )
           )}
             onItemSelect={(item, index) => console.log(item, index)}
-            showGradients={true}
+            showGradients={false}
             enableArrowNavigation={true}
-            displayScrollbar={true}
+            displayScrollbar={false}
           />
          /*  listToRender.map(
             (contact) => (
@@ -49,8 +49,11 @@ const ChatList = () => {
             )
           ) */
         )}
+        {/* Add form inside the scroll container so it can stick to bottom when list grows */}
+        <div className="add-new-wrapper">
+          <AddNewContact />
+        </div>
       </div>
-      <AddNewContact />
       
     </div>
   );
