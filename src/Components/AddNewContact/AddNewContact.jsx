@@ -32,10 +32,8 @@ const AddNewContact = () => {
 
   return (
     <form className='form-group' onSubmit={handleSubmitNewContact}>
-      <div >
-        <label htmlFor="name">Nuevo contacto:</label>
-        <input className='contact-input' name='name' id='name' placeholder='Ingrese el nombre' onKeyDown={handleKeyDown} />
-      </div>
+      <label htmlFor="name">Nuevo contacto:</label>
+      <input className='contact-input' name='name' id='name' placeholder='Ingrese el nombre' onKeyDown={handleKeyDown} />
       <button className='submit-button' type='submit'>Agregar Contacto</button>
     </form>
   )

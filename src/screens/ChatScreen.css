@@ -1,7 +1,7 @@
 .titulo {
   font-family: var(--font-family);
   font-optical-sizing: auto;
-    font-weight: var(--fw-bold);
+  font-weight: var(--fw-bold);
   font-style: normal;
 }
 
@@ -18,13 +18,13 @@
 .chat-screen {
     text-align: left;
     background-color: var(--background-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    height: 100vh;
-    font-family: "Montserrat", sans-serif;
-    color: var(--text-color);
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      flex: 1 1 auto;
+      font-family: "Montserrat", sans-serif;
+      color: var(--text-color);
+      overflow: hidden; /* hide overflow at root of panels so children scroll */
 }
 
 .main-link{
@@ -40,7 +40,7 @@
   flex: 0 0 320px;
   max-width: 35%;
   border-right: 1px solid #ccc;
-  overflow-y: auto;
+  overflow: hidden; /* let inner components scroll */
 }
 
 .chat-detail {
@@ -86,4 +86,15 @@
 /* hide the back button on larger screens */
 @media (min-width: 769px) {
   .back-button { display: none; }
+}
+
+.chat-screen-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-link .Titulo, .main-link h1 {
+  margin: 0 12px; /* ensure header doesn't add extra page height */
+  padding: 12px 0;
 }

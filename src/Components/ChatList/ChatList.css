@@ -1,22 +1,26 @@
 
 .chat-list-full-side {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto; /* let parent control overall height */
+    min-height: 0; /* allow children to scroll correctly */
 }
 
 .chat-list-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        padding: 10px;
-        height: 100%;
-        box-sizing: border-box;
-        overflow: hidden; /* remove outer scrollbar */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* remove outer scrollbar */
+    flex: 1 1 auto; /* take available space inside parent */
+    min-height: 0; /* allow inner scrollable child to size correctly */
 }
 
 /* Make the search header stick to the top of the container/viewport */
-.chatlist-top {
+.chat-list-header {
     position: sticky;
     top: 0;
     z-index: 20;
@@ -85,11 +89,39 @@
 }
 
 /* Animated list container should take remaining space and scroll internally */
-.scroll-list-container {
+.chat-list-scroll {
     flex: 1 1 auto;
     min-height: 0; /* allow flex child to shrink for scrolling */
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-right: 6px; /* allow room for scrollbar */
 }
+
+/* Styles for each contact link to look like a neat list */
+.chat-link {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: var(--card-text, #111);
+    background: var(--card-bg, #fff);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.chat-link:hover {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+}
+
+.chat-link + .chat-link { margin-top: 6px; }
+
+.chat-link-body { display: flex; flex-direction: column; min-width: 0; }
 
 /* hide outer container scrollbar on WebKit (if any) */
 .chat-list-container::-webkit-scrollbar { display: none; }
